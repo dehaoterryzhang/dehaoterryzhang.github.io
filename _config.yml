@@ -9,3 +9,7 @@ show_social: true
 external:
   - {title: Github, icon: github, url: "https://github.com/dehaoterryzhang"}
   - {title: Github, icon: github, url: "https://github.com/dehaoterryzhang"}
+
+
+plugins:
+ - jekyll-feed
