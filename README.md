@@ -62,9 +62,9 @@ npm run preview
 /
 ├── public/
 │   ├── favicon.svg
-│   ├── ProfilePicture_1_1.jpg  # ⚠️ YOUR PROFILE PICTURE HERE
+│   ├── ProfilePicture_1_1.jpg  # YOUR PROFILE PICTURE HERE
 │   └── robots.txt
-├── content/                     # 📝 YOUR CONTENT (Markdown files)
+├── content/                     # YOUR CONTENT (Markdown files)
 │   ├── Blog_Posts/             # Your blog post markdown files
 │   ├── GitHub_Summary.md
 │   ├── LinkedIn_Summary.md
