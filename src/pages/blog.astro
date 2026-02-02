@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BlogCard from '../components/BlogCard.astro';
+
+const technicalBlogPosts = [
+  {
+    title: 'Building EcoPulse: A Scalable Batch Pipeline for Economic Data',
+    description: 'A deep dive into building a scalable batch pipeline for economic data, focusing on end-to-end automation with cloud-native tools.',
+    url: 'https://medium.com/@terryz_',
+    tags: ['Data Engineering', 'Cloud', 'Automation'],
+  },
+  {
+    title: 'Mastering Kestra: Workflow Orchestration for Modern Data Pipelines',
+    description: 'A comprehensive guide on workflow orchestration, from Postgres ETL to managing GCS and BigQuery pipelines.',
+    url: 'https://medium.com/@terryz_',
+    tags: ['Orchestration', 'ETL', 'Kestra'],
+  },
+  {
+    title: 'Terraform Foundations: Infrastructure as Code for Data Engineers',
+    description: 'Practical guides on Infrastructure as Code (IaC) for managing cloud resources reliably and reproducibly.',
+    url: 'https://medium.com/@terryz_',
+    tags: ['Terraform', 'IaC', 'DevOps'],
+  },
+  {
+    title: 'Spark Internals: Why Spark Outperforms Hadoop',
+    description: 'Analysis of cluster architecture and why Spark outperforms Hadoop for modern big data workloads.',
+    url: 'https://medium.com/@terryz_',
+    tags: ['Spark', 'Big Data', 'Performance'],
+  },
+  {
+    title: 'Running Spark in the Cloud: GCS and Cloud Jobs',
+    description: 'Step-by-step guides on connecting Spark to Google Cloud Storage (GCS) and submitting cloud jobs.',
+    url: 'https://medium.com/@terryz_',
+    tags: ['Spark', 'GCP', 'Cloud'],
+  },
+  {
+    title: 'Analytics Engineering with dbt: From Models to Production',
+    description: 'Comprehensive guides on building dbt models, testing, and deploying documentation in production environments.',
+    url: 'https://medium.com/@terryz_',
+    tags: ['dbt', 'Analytics', 'SQL'],
+  },
+  {
+    title: 'BigQuery ML: Machine Learning in SQL',
+    description: 'Implementing machine learning workflows directly within SQL-based queries for faster iteration and deployment.',
+    url: 'https://medium.com/@terryz_',
+    tags: ['BigQuery', 'ML', 'SQL'],
+  },
+  {
+    title: 'Data Warehousing Deep Dive: BigQuery Best Practices',
+    description: 'Deep dives into BigQuery concepts, including external vs. native tables and partitioning strategies.',
+    url: 'https://medium.com/@terryz_',
+    tags: ['BigQuery', 'Data Warehouse', 'Optimization'],
+  },
+  {
+    title: 'The "dlt" Workshop: Simplifying API Data Extraction',
+    description: 'Exploring data ingestion and normalization with dlt to simplify API data extraction workflows.',
+    url: 'https://medium.com/@terryz_',
+    tags: ['dlt', 'Data Ingestion', 'APIs'],
+  },
+];
+
+const readingBlogPosts = [
+  {
+    title: 'Coming Soon',
+    description: 'Book reviews, reading reflections, and insights from my reading journey will be shared here.',
+    url: '#',
+    tags: ['Books', 'Learning'],
+  },
+];
+---
+
+<BaseLayout title="Blog — Dehao Zhang">
+  <Header />
+  
+  <main class="min-h-screen">
+    <!-- Hero Section -->
+    <section class="relative py-20 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-white dark:from-primary-950/20 dark:via-dark-bg dark:to-dark-bg -z-10"></div>
+      
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+            Writing & <span class="bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent">Insights</span>
+          </h1>
+          <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            Documenting my journey through the modern data stack — from cloud infrastructure to machine learning operations.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Blog Section (Collapsible) -->
+    <section id="technical" class="py-12 scroll-mt-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <details class="group" open>
+          <summary class="flex items-center justify-between cursor-pointer list-none p-6 bg-white dark:bg-dark-card rounded-xl border border-gray-200 dark:border-dark-border hover:shadow-lg transition-all duration-300">
+            <div class="flex items-center space-x-4">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+              </div>
+              <div class="text-left">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Technical Blog</h2>
+                <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">
+                  Data engineering, AI, and cloud technologies — published on 
+                  <a href="https://medium.com/@terryz_" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline">Medium</a>
+                </p>
+              </div>
+            </div>
+            <svg class="w-6 h-6 text-gray-500 transform group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          
+          <div class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in">
+            {technicalBlogPosts.map((post) => (
+              <BlogCard {...post} />
+            ))}
+          </div>
+          
+          <div class="mt-8 text-center">
+            <a 
+              href="https://medium.com/@terryz_"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center space-x-2 px-6 py-3 bg-gray-900 dark:bg-white dark:text-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors duration-200"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+              </svg>
+              <span>Follow on Medium</span>
+            </a>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Reading Blog Section (Collapsible) -->
+    <section id="reading" class="py-12 pb-20 scroll-mt-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <details class="group">
+          <summary class="flex items-center justify-between cursor-pointer list-none p-6 bg-white dark:bg-dark-card rounded-xl border border-gray-200 dark:border-dark-border hover:shadow-lg transition-all duration-300">
+            <div class="flex items-center space-x-4">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
+              </div>
+              <div class="text-left">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Reading Blog</h2>
+                <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Book reviews, reflections, and learning insights</p>
+              </div>
+            </div>
+            <svg class="w-6 h-6 text-gray-500 transform group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          
+          <div class="mt-6 animate-fade-in">
+            <div class="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/10 dark:to-orange-900/10 rounded-xl p-8 text-center border border-amber-200/50 dark:border-amber-700/30">
+              <svg class="w-16 h-16 text-amber-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Coming Soon</h3>
+              <p class="text-gray-600 dark:text-gray-400">
+                Book reviews, reading reflections, and insights from my reading journey will be shared here.
+              </p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

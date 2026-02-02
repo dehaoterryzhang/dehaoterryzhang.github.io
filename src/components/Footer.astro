@@ -1,0 +1,72 @@
+---
+import SocialIcons from './SocialIcons.astro';
+---
+
+<footer class="bg-gray-50 dark:bg-dark-card border-t border-gray-200 dark:border-dark-border">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Brand -->
+      <div class="space-y-4">
+        <div class="flex items-center space-x-2">
+          <span class="text-xl font-bold bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent">
+            DZ
+          </span>
+          <span class="text-gray-700 dark:text-gray-300 font-medium">
+            Dehao Zhang
+          </span>
+        </div>
+        <p class="text-sm text-gray-600 dark:text-gray-400">
+          Data Scientist & AI Builder<br />
+          Optimizing business efficiency through AI
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="space-y-4">
+        <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider">
+          Quick Links
+        </h3>
+        <ul class="space-y-2">
+          <li>
+            <a href="/projects" class="text-sm text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+              Projects
+            </a>
+          </li>
+          <li>
+            <a href="/blog" class="text-sm text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+              Blog
+            </a>
+          </li>
+          <li>
+            <a href="/about" class="text-sm text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+              About
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Connect -->
+      <div class="space-y-4">
+        <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider">
+          Connect
+        </h3>
+        <SocialIcons size="md" />
+      </div>
+    </div>
+
+    <div class="mt-8 pt-8 border-t border-gray-200 dark:border-dark-border">
+      <div class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+        <p class="text-sm text-gray-500 dark:text-gray-500">
+          © {new Date().getFullYear()} Dehao Zhang. All rights reserved.
+        </p>
+        <div class="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-500">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+          </svg>
+          <span><span id="view-counter">0</span> views</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

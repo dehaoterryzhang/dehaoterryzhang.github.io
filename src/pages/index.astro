@@ -1,0 +1,223 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SocialIcons from '../components/SocialIcons.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import BlogCard from '../components/BlogCard.astro';
+
+const featuredProjects = [
+  {
+    title: 'EcoPulse',
+    description: 'An end-to-end batch data pipeline designed to ingest, process, and analyze key economic indicators. Built using a cloud-native architecture that handles the transition from raw data to actionable business intelligence.',
+    techStack: ['Python', 'Terraform', 'GCS', 'BigQuery', 'Kestra'],
+    githubUrl: 'https://github.com/dehaoterryzhang/EcoPulse',
+  },
+  {
+    title: 'ToSDR-RAG',
+    description: 'A sophisticated Retrieval-Augmented Generation (RAG) system based on the "Terms of Service; Didn\'t Read" dataset. Utilizes vector embeddings and semantic search to query complex legal documents in natural language.',
+    techStack: ['Python', 'LLMs', 'RAG', 'Vector DB', 'NLP'],
+    githubUrl: 'https://github.com/dehaoterryzhang/ToSDR-RAG',
+  },
+];
+
+const featuredBlogs = [
+  {
+    title: 'Building EcoPulse: A Scalable Batch Pipeline for Economic Data',
+    description: 'A deep dive into building a scalable batch pipeline for economic data, focusing on end-to-end automation with cloud-native tools.',
+    url: 'https://medium.com/@terryz_',
+    tags: ['Data Engineering', 'Cloud'],
+  },
+  {
+    title: 'Mastering Kestra: Workflow Orchestration for Modern Data Pipelines',
+    description: 'A comprehensive guide on workflow orchestration, from Postgres ETL to managing GCS and BigQuery pipelines.',
+    url: 'https://medium.com/@terryz_',
+    tags: ['Orchestration', 'ETL'],
+  },
+  {
+    title: 'Spark Internals: Why Spark Outperforms Hadoop',
+    description: 'Analysis of cluster architecture and why Spark outperforms Hadoop for modern big data workloads.',
+    url: 'https://medium.com/@terryz_',
+    tags: ['Spark', 'Big Data'],
+  },
+];
+---
+
+<BaseLayout>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden min-h-[85vh] flex items-center">
+      <!-- Animated Background -->
+      <div class="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-white dark:from-primary-950/30 dark:via-dark-bg dark:to-dark-bg -z-10"></div>
+      
+      <!-- Floating Orbs -->
+      <div class="absolute top-20 right-10 w-72 h-72 bg-primary-400/20 rounded-full blur-3xl -z-10 animate-pulse-slow"></div>
+      <div class="absolute bottom-20 left-10 w-96 h-96 bg-primary-600/15 rounded-full blur-3xl -z-10 animate-pulse-slow" style="animation-delay: 1s;"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-primary-500/10 to-transparent rounded-full blur-2xl -z-10"></div>
+      
+      <!-- Subtle Grid Pattern -->
+      <div class="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:60px_60px] -z-10"></div>
+      
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 w-full">
+        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+          <!-- Text Content -->
+          <div class="flex-1 text-center lg:text-left animate-fade-in">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 text-glow">
+              Hi, I'm <span class="bg-gradient-to-r from-primary-600 via-primary-500 to-primary-400 bg-clip-text text-transparent animate-gradient bg-[length:200%_auto]">Dehao Zhang</span>
+            </h1>
+            
+            <p class="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 mb-4 font-medium">
+              Data Scientist & AI Builder
+            </p>
+            
+            <p class="text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0 text-lg leading-relaxed">
+              I optimize business efficiency and enhance decision-making through the power of data science and AI. 
+              Currently building intelligent solutions at <span class="font-semibold text-primary-600 dark:text-primary-400">Microsoft</span>.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-8">
+              <a 
+                href="/projects"
+                class="glow-button px-8 py-3.5 bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-700 hover:to-primary-600 text-white font-medium rounded-xl transition-all duration-300 shadow-lg shadow-primary-500/30 hover:shadow-primary-500/50 hover:scale-105"
+              >
+                View My Projects
+              </a>
+              <a 
+                href="/about"
+                class="px-8 py-3.5 bg-white/80 dark:bg-dark-card/80 backdrop-blur-sm border border-gray-200 dark:border-dark-border hover:border-primary-500 dark:hover:border-primary-500 text-gray-700 dark:text-gray-300 font-medium rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105"
+              >
+                Learn More About Me
+              </a>
+            </div>
+
+            <!-- Social Icons -->
+            <div class="flex items-center justify-center lg:justify-start gap-3">
+              <span class="text-sm text-gray-500 dark:text-gray-400">Find me on:</span>
+              <SocialIcons size="md" />
+            </div>
+          </div>
+
+          <!-- Profile Image -->
+          <div class="flex-shrink-0 animate-slide-up">
+            <div class="relative group">
+              <!-- Glow Effect -->
+              <div class="absolute inset-0 rounded-full bg-gradient-to-r from-primary-500 to-primary-400 blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500 scale-110"></div>
+              
+              <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-white/80 dark:border-dark-card/80 shadow-2xl shine-effect">
+                <img 
+                  src="/ProfilePicture_1_1.jpg" 
+                  alt="Dehao Zhang"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              
+              <!-- Animated Decorative Rings -->
+              <div class="absolute inset-0 rounded-full border-2 border-primary-500/40 scale-110 animate-pulse-slow"></div>
+              <div class="absolute inset-0 rounded-full border border-primary-400/20 scale-125 float-element"></div>
+              <div class="absolute inset-0 rounded-full border border-primary-300/10 scale-[1.4]"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section class="py-20 bg-gray-50 dark:bg-dark-card/50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            Featured Projects
+          </h2>
+          <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            Building end-to-end data pipelines and implementing advanced AI architectures to solve real-world challenges.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-8">
+          {featuredProjects.map((project) => (
+            <ProjectCard {...project} />
+          ))}
+        </div>
+
+        <div class="text-center">
+          <a 
+            href="/projects"
+            class="inline-flex items-center space-x-2 text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium transition-colors"
+          >
+            <span>View All Projects</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Blog Posts Section -->
+    <section class="py-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            Latest Insights
+          </h2>
+          <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            Documenting my journey through the modern data stack — from cloud infrastructure to machine learning operations.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-8">
+          {featuredBlogs.map((blog) => (
+            <BlogCard {...blog} />
+          ))}
+        </div>
+
+        <div class="text-center">
+          <a 
+            href="/blog"
+            class="inline-flex items-center space-x-2 text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium transition-colors"
+          >
+            <span>Read More on Medium</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="py-20 bg-gray-50 dark:bg-dark-card/50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            Core Competencies
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[
+            { icon: '🤖', title: 'AI & ML', skills: ['LLMs', 'RAG', 'NLP', 'Predictive Modeling'] },
+            { icon: '📊', title: 'Data Engineering', skills: ['Spark', 'BigQuery', 'dbt', 'Airflow'] },
+            { icon: '☁️', title: 'Cloud & DevOps', skills: ['Azure', 'GCP', 'Terraform', 'Docker'] },
+            { icon: '📈', title: 'Analytics', skills: ['Python', 'SQL', 'Power BI', 'Statistics'] },
+          ].map((category) => (
+            <div class="bg-white dark:bg-dark-card rounded-xl p-6 border border-gray-200 dark:border-dark-border">
+              <div class="text-3xl mb-3">{category.icon}</div>
+              <h3 class="font-semibold text-gray-900 dark:text-white mb-3">{category.title}</h3>
+              <ul class="space-y-1">
+                {category.skills.map((skill) => (
+                  <li class="text-sm text-gray-600 dark:text-gray-400">{skill}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</BaseLayout>

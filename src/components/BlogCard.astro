@@ -1,0 +1,55 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  url: string;
+  tags?: string[];
+  date?: string;
+}
+
+const { title, description, url, tags = [], date } = Astro.props;
+---
+
+<a 
+  href={url}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="group block bg-white/80 dark:bg-dark-card/80 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-dark-border/50 p-6 hover:shadow-xl hover:shadow-primary-500/15 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden"
+>
+  <!-- Gradient glow on hover -->
+  <div class="absolute inset-0 bg-gradient-to-br from-primary-500/0 to-primary-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+  
+  <div class="relative">
+    <div class="flex items-start justify-between mb-3">
+      <div class="flex-1">
+        {date && (
+          <span class="text-xs text-gray-500 dark:text-gray-500 mb-1 block">
+            {date}
+          </span>
+        )}
+        <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors line-clamp-2">
+          {title}
+        </h3>
+      </div>
+      <div class="w-8 h-8 rounded-lg bg-primary-50 dark:bg-primary-900/30 flex items-center justify-center group-hover:bg-primary-100 dark:group-hover:bg-primary-900/50 transition-colors flex-shrink-0 ml-3">
+        <svg class="w-4 h-4 text-primary-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
+      </div>
+    </div>
+    
+    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2 leading-relaxed">
+      {description}
+    </p>
+
+    {tags.length > 0 && (
+      <div class="flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <span class="px-2.5 py-1 text-xs font-medium bg-gradient-to-r from-primary-50 to-primary-100 dark:from-primary-900/30 dark:to-primary-800/30 text-primary-700 dark:text-primary-300 rounded-full border border-primary-200/50 dark:border-primary-700/50">
+            {tag}
+          </span>
+        ))}
+      </div>
+    )}
+  </div>
+</a>

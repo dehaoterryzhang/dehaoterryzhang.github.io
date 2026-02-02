@@ -1,0 +1,102 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  techStack: string[];
+  githubUrl?: string;
+  demoUrl?: string;
+  image?: string;
+}
+
+const { title, description, techStack, githubUrl, demoUrl, image } = Astro.props;
+---
+
+<div class="group relative bg-white/80 dark:bg-dark-card/80 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-dark-border/50 overflow-hidden hover:shadow-2xl hover:shadow-primary-500/20 transition-all duration-500 hover:-translate-y-2">
+  <!-- Gradient Glow on Hover -->
+  <div class="absolute inset-0 bg-gradient-to-r from-primary-500/0 via-primary-500/5 to-primary-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+  
+  <!-- Image -->
+  {image && (
+    <div class="h-48 overflow-hidden">
+      <img 
+        src={image} 
+        alt={title}
+        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+      />
+    </div>
+  )}
+  
+  <!-- Gradient Overlay (if no image) -->
+  {!image && (
+    <div class="h-36 bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700 flex items-center justify-center relative overflow-hidden">
+      <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.1)_50%,transparent_75%)] bg-[length:200%_200%] animate-shimmer"></div>
+      <svg class="w-16 h-16 text-white/40 group-hover:scale-110 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+      </svg>
+    </div>
+  )}
+
+  <!-- Content -->
+  <div class="p-6 relative">
+    {githubUrl ? (
+      <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors cursor-pointer">
+          {title}
+          <svg class="w-4 h-4 inline-block ml-1 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </h3>
+      </a>
+    ) : (
+      <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+        {title}
+      </h3>
+    )}
+    
+    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3">
+      {description}
+    </p>
+
+    <!-- Tech Stack -->
+    <div class="flex flex-wrap gap-2 mb-4">
+      {techStack.map((tech) => (
+        <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-dark-border text-gray-700 dark:text-gray-300 rounded-md">
+          {tech}
+        </span>
+      ))}
+    </div>
+
+    <!-- Links -->
+    <div class="flex items-center space-x-3">
+      {githubUrl && (
+        <a 
+          href={githubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center space-x-1 text-sm text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+        >
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+          </svg>
+          <span>View on GitHub</span>
+        </a>
+      )}
+      {demoUrl && (
+        <a 
+          href={demoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center space-x-1 text-sm text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+          <span>Demo</span>
+        </a>
+      )}
+    </div>
+  </div>
+
+  <!-- Hover Gradient Border -->
+  <div class="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-primary-500/30 transition-colors duration-300 pointer-events-none"></div>
+</div>
