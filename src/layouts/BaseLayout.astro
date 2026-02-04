@@ -67,7 +67,7 @@ const {
         try {
           // Use CountAPI to track cumulative views
           // Namespace: dehaozhang, Key: portfolio-views
-          const response = await fetch('https://api.countapi.xyz/hit/dehaozhang.github.io/portfolio-views');
+          const response = await fetch('https://api.countapi.dev/hit/dehaozhang.github.io/portfolio-views');
           const data = await response.json();
           
           if (data && data.value) {
