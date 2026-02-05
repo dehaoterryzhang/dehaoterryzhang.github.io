@@ -1,8 +1,8 @@
 ---
-// Counter.astro - Client-side view counter component
+// Counter.astro - Client-side view counter component using hits.sh
 ---
 
-<span id="view-counter" class="font-semibold">0</span>
+<span id="view-counter" class="font-semibold">...</span>
 
 <script>
   // This script runs on the client side in the browser
@@ -10,30 +10,26 @@
     const counterEl = document.getElementById('view-counter');
     if (!counterEl) return;
     
-    // Show loading state
-    counterEl.textContent = '...';
-    
     try {
-      // Use CountAPI to track cumulative views
-      const response = await fetch('https://api.countapi.dev/hit/dehaozhang.github.io/portfolio-views');
+      // Use hits.sh API - reliable and free
+      // The URL path becomes the unique identifier for the counter
+      const response = await fetch('https://hits.sh/dehaoterryzhang.github.io.json');
       
       if (!response.ok) {
-        throw new Error('CountAPI failed');
+        throw new Error('hits.sh failed');
       }
       
       const data = await response.json();
       
-      if (data && data.value) {
-        counterEl.textContent = data.value.toLocaleString();
+      if (data && data.count !== undefined) {
+        counterEl.textContent = data.count.toLocaleString();
       } else {
-        throw new Error('No value returned');
+        throw new Error('No count returned');
       }
     } catch (error) {
-      console.log('CountAPI error:', error);
-      // Fallback to localStorage count (at least shows something)
-      const localCount = parseInt(localStorage.getItem('fallback_views') || '0') + 1;
-      localStorage.setItem('fallback_views', localCount.toString());
-      counterEl.textContent = localCount.toLocaleString();
+      console.log('Counter error:', error);
+      // Fallback: show dash
+      counterEl.textContent = '—';
     }
   }
   
