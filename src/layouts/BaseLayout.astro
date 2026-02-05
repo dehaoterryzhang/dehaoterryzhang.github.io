@@ -55,38 +55,5 @@ const {
   </head>
   <body class="bg-white dark:bg-dark-bg text-gray-900 dark:text-gray-100 font-sans antialiased transition-colors duration-300">
     <slot />
-    
-    <!-- View Counter Script -->
-    <script is:inline>
-      // Cumulative view counter using CountAPI (free service)
-      // This tracks views across ALL visitors and devices
-      async function updateViewCount() {
-        const counterEl = document.getElementById('view-counter');
-        if (!counterEl) return;
-        
-        try {
-          // Use CountAPI to track cumulative views
-          // Namespace: dehaozhang, Key: portfolio-views
-          const response = await fetch('https://api.countapi.dev/hit/dehaozhang.github.io/portfolio-views');
-          const data = await response.json();
-          
-          if (data && data.value) {
-            counterEl.textContent = data.value.toLocaleString();
-          }
-        } catch (error) {
-          // Fallback: try alternative service
-          try {
-            // Alternative: hits.seeyoufarm.com badge API
-            const img = new Image();
-            img.src = 'https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fdehaoterryzhang.github.io&count_bg=%233B82F6&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=views&edge_flat=true';
-            counterEl.textContent = '—';
-          } catch {
-            counterEl.textContent = '—';
-          }
-        }
-      }
-      
-      updateViewCount();
-    </script>
   </body>
 </html>
