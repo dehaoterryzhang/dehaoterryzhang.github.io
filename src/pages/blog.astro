@@ -15,58 +15,58 @@ const technicalBlogPosts = [
     title: 'Mastering Kestra: Workflow Orchestration for Modern Data Pipelines',
     description: 'A comprehensive guide on workflow orchestration, from Postgres ETL to managing GCS and BigQuery pipelines.',
     url: 'https://medium.com/@terryz_',
-    tags: ['Orchestration', 'ETL', 'Kestra'],
+    tags: ['Data Engineering Zoomcamp', 'Orchestration', 'Kestra'],
   },
   {
     title: 'Terraform Foundations: Infrastructure as Code for Data Engineers',
     description: 'Practical guides on Infrastructure as Code (IaC) for managing cloud resources reliably and reproducibly.',
     url: 'https://medium.com/@terryz_',
-    tags: ['Terraform', 'IaC', 'DevOps'],
+    tags: ['Data Engineering Zoomcamp', 'Terraform', 'IaC'],
   },
   {
     title: 'Spark Internals: Why Spark Outperforms Hadoop',
     description: 'Analysis of cluster architecture and why Spark outperforms Hadoop for modern big data workloads.',
     url: 'https://medium.com/@terryz_',
-    tags: ['Spark', 'Big Data', 'Performance'],
+    tags: ['Data Engineering Zoomcamp', 'Spark', 'Big Data'],
   },
   {
     title: 'Running Spark in the Cloud: GCS and Cloud Jobs',
     description: 'Step-by-step guides on connecting Spark to Google Cloud Storage (GCS) and submitting cloud jobs.',
     url: 'https://medium.com/@terryz_',
-    tags: ['Spark', 'GCP', 'Cloud'],
+    tags: ['Data Engineering Zoomcamp', 'Spark', 'GCP'],
   },
   {
     title: 'Analytics Engineering with dbt: From Models to Production',
     description: 'Comprehensive guides on building dbt models, testing, and deploying documentation in production environments.',
     url: 'https://medium.com/@terryz_',
-    tags: ['dbt', 'Analytics', 'SQL'],
+    tags: ['Data Engineering Zoomcamp', 'dbt', 'Analytics'],
   },
   {
     title: 'BigQuery ML: Machine Learning in SQL',
     description: 'Implementing machine learning workflows directly within SQL-based queries for faster iteration and deployment.',
     url: 'https://medium.com/@terryz_',
-    tags: ['BigQuery', 'ML', 'SQL'],
+    tags: ['Data Engineering Zoomcamp', 'BigQuery', 'ML'],
   },
   {
     title: 'Data Warehousing Deep Dive: BigQuery Best Practices',
     description: 'Deep dives into BigQuery concepts, including external vs. native tables and partitioning strategies.',
     url: 'https://medium.com/@terryz_',
-    tags: ['BigQuery', 'Data Warehouse', 'Optimization'],
+    tags: ['Data Engineering Zoomcamp', 'BigQuery', 'Data Warehouse'],
   },
   {
     title: 'The "dlt" Workshop: Simplifying API Data Extraction',
     description: 'Exploring data ingestion and normalization with dlt to simplify API data extraction workflows.',
     url: 'https://medium.com/@terryz_',
-    tags: ['dlt', 'Data Ingestion', 'APIs'],
+    tags: ['Data Engineering Zoomcamp', 'dlt', 'Data Ingestion'],
   },
 ];
 
 const readingBlogPosts = [
   {
-    title: 'Coming Soon',
-    description: 'Book reviews, reading reflections, and insights from my reading journey will be shared here.',
-    url: '#',
-    tags: ['Books', 'Learning'],
+    title: "Charlie Munger's Latticework: 5 Fundamental Mental Models",
+    description: 'Exploring Charlie Munger\'s approach to decision-making through fundamental mental models from his latticework of knowledge.',
+    url: 'https://dehaozhang.substack.com/p/charlie-mungers-latticework-5-fundamental',
+    tags: ['Books', 'Mental Models', 'Investing'],
   },
 ];
 ---
@@ -82,10 +82,10 @@ const readingBlogPosts = [
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center">
           <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            Writing & <span class="bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent">Insights</span>
+            Learning Notes & <span class="bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent">Reflections</span>
           </h1>
           <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Documenting my journey through the modern data stack — from cloud infrastructure to machine learning operations.
+            Documenting my learning journey — from technical deep dives to life lessons and personal reflections.
           </p>
         </div>
       </div>
@@ -151,7 +151,10 @@ const readingBlogPosts = [
               </div>
               <div class="text-left">
                 <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Reading Blog</h2>
-                <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Book reviews, reflections, and learning insights</p>
+                <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">
+                  Book reviews, reflections, and learning insights — published on 
+                  <a href="https://dehaozhang.substack.com/" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline">Substack</a>
+                </p>
               </div>
             </div>
             <svg class="w-6 h-6 text-gray-500 transform group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -159,16 +162,24 @@ const readingBlogPosts = [
             </svg>
           </summary>
           
-          <div class="mt-6 animate-fade-in">
-            <div class="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/10 dark:to-orange-900/10 rounded-xl p-8 text-center border border-amber-200/50 dark:border-amber-700/30">
-              <svg class="w-16 h-16 text-amber-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+          <div class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in">
+            {readingBlogPosts.map((post) => (
+              <BlogCard {...post} />
+            ))}
+          </div>
+          
+          <div class="mt-8 text-center">
+            <a 
+              href="https://dehaozhang.substack.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center space-x-2 px-6 py-3 bg-[#FF6719] text-white font-medium rounded-lg hover:bg-[#e55a14] transition-colors duration-200"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
               </svg>
-              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Coming Soon</h3>
-              <p class="text-gray-600 dark:text-gray-400">
-                Book reviews, reading reflections, and insights from my reading journey will be shared here.
-              </p>
-            </div>
+              <span>Follow on Substack</span>
+            </a>
           </div>
         </details>
       </div>
